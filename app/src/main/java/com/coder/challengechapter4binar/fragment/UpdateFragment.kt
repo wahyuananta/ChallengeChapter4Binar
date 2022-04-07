@@ -21,7 +21,7 @@ class UpdateFragment(var itemSelected : Club) : DialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentUpdateBinding.inflate(inflater, container, false)
         return binding.root
@@ -29,6 +29,7 @@ class UpdateFragment(var itemSelected : Club) : DialogFragment() {
 
     override fun onResume() {
         super.onResume()
+        dialog?.window?.setBackgroundDrawableResource(R.drawable.dialog_radius)
         dialog?.window?.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 

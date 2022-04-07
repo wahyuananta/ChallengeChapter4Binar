@@ -29,6 +29,7 @@ class AddFragment : DialogFragment() {
 
     override fun onResume() {
         super.onResume()
+        dialog?.window?.setBackgroundDrawableResource(R.drawable.dialog_radius)
         dialog?.window?.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 

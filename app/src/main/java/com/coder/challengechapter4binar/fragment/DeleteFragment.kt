@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.coder.challengechapter4binar.AppDatabase
 import com.coder.challengechapter4binar.Club
+import com.coder.challengechapter4binar.R
 import com.coder.challengechapter4binar.databinding.FragmentDeleteBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
@@ -28,6 +29,7 @@ class DeleteFragment(var itemSelected : Club) : DialogFragment() {
 
     override fun onResume() {
         super.onResume()
+        dialog?.window?.setBackgroundDrawableResource(R.drawable.dialog_radius)
         dialog?.window?.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
