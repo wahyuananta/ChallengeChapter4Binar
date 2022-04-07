@@ -20,7 +20,7 @@
             android:id="@+id/tv_liga"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Liga Inggris"
+            android:text="@string/liga_inggris"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -32,7 +32,7 @@
             android:id="@+id/tv_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Manchester United"
+            android:text="@string/manchester_united"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginEnd="6dp"
@@ -42,7 +42,7 @@
             android:id="@+id/tv_vs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="VS"
+            android:text="@string/vs"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="16sp"
@@ -54,7 +54,7 @@
             android:id="@+id/tv_away"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Manchester City"
+            android:text="@string/manchester_city"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginStart="6dp"
@@ -65,7 +65,7 @@
             android:id="@+id/tv_tanggal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="7/4/2022"
+            android:text="@string/_7_4_2022"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +76,7 @@
             android:id="@+id/tv_jam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="20.00"
+            android:text="@string/_20_00"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -89,7 +89,8 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_delete"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/button_delete" />
 
         <ImageView
             android:id="@+id/ivEdit"
@@ -97,7 +98,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/button_edit" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

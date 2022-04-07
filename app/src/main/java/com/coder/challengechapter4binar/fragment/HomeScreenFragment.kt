@@ -26,7 +26,7 @@ class HomeScreenFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentHomeScreenBinding.inflate(inflater, container, false)
         return binding.root
@@ -44,13 +44,13 @@ class HomeScreenFragment : Fragment() {
         userLogout()
     }
 
-    fun add() {
+    private fun add() {
         binding.fabNewItem.setOnClickListener {
             findNavController().navigate(R.id.action_homeScreenFragment_to_addFragment)
         }
     }
 
-    fun fetchData() {
+    private fun fetchData() {
         GlobalScope.launch {
             val clubList = mDb?.clubDao()?.getAllClub()
             activity?.runOnUiThread {
@@ -63,17 +63,17 @@ class HomeScreenFragment : Fragment() {
         }
     }
 
-    fun userLogout() {
+    private fun userLogout() {
         binding.btnLogout.setOnClickListener {
-            val logoutDialog =AlertDialog.Builder(requireContext())
+            val logoutDialog = AlertDialog.Builder(requireContext())
             logoutDialog.setTitle("Logout")
             logoutDialog.setMessage("Apakah anda yakin ingin logout?")
-            logoutDialog.setPositiveButton("Logout") {p0, p1 ->
+            logoutDialog.setPositiveButton("Logout") {p0, _ ->
                 p0.dismiss()
                 preferences.edit().clear().apply()
                 findNavController().navigate(R.id.action_homeScreenFragment_to_loginFragment)
             }
-            logoutDialog.setNegativeButton("Batal") {p0, p1 ->
+            logoutDialog.setNegativeButton("Batal") {p0, _ ->
                 p0.dismiss()
             }
             logoutDialog.show()

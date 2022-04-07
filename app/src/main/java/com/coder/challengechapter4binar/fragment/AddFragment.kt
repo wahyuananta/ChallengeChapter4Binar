@@ -15,7 +15,7 @@ import kotlinx.coroutines.async
 class AddFragment : DialogFragment() {
     private var _binding: FragmentAddBinding? = null
     private val binding get() = _binding!!
-    var mDb: AppDatabase? = null
+    private var mDb: AppDatabase? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

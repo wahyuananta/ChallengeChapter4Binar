@@ -22,15 +22,15 @@ class LoginFragment : Fragment() {
     private var mDb: AppDatabase? = null
 
     companion object {
-        val LOGINUSER = "login_username"
-        val USERNAME = "username"
-        val PASSWORD = "password"
+        const val LOGINUSER = "login_username"
+        const val USERNAME = "username"
+        const val PASSWORD = "password"
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
@@ -53,29 +53,33 @@ class LoginFragment : Fragment() {
             val username = binding.etUsername.text
             val password = binding.etPassword.text
 
-            if (username.isNullOrEmpty()) {
-                binding.ilUsername.error = "Username belum diisi"
-            } else if (password.isNullOrEmpty()) {
-                binding.ilPassword.error = "Password belum diisi"
-            } else {
-                GlobalScope.async {
-                    val result = mDb?.dataUserDao()?.checkUser(username.toString(), password.toString())
+            when {
+                username.isNullOrEmpty() -> {
+                    binding.ilUsername.error = "Username belum diisi"
+                }
+                password.isNullOrEmpty() -> {
+                    binding.ilPassword.error = "Password belum diisi"
+                }
+                else -> {
+                    GlobalScope.async {
+                        val result = mDb?.dataUserDao()?.checkUser(username.toString(), password.toString())
 
-                    activity?.runOnUiThread {
-                        if (result == false) {
-                            val snackbar = Snackbar.make(it,"Login gagal, coba periksa email atau password anda",
-                                Snackbar.LENGTH_INDEFINITE)
-                            snackbar.setAction("Oke") {
-                                snackbar.dismiss()
+                        activity?.runOnUiThread {
+                            if (result == false) {
+                                val snackbar = Snackbar.make(it,"Login gagal, coba periksa email atau password anda",
+                                    Snackbar.LENGTH_INDEFINITE)
+                                snackbar.setAction("Oke") {
+                                    snackbar.dismiss()
+                                }
+                                snackbar.show()
+                            } else {
+                                val editor : SharedPreferences.Editor = preferences.edit()
+                                editor.putString(USERNAME, username.toString())
+                                editor.putString(PASSWORD, password.toString())
+                                editor.apply()
+                                Toast.makeText(context, "Login berhasil", Toast.LENGTH_SHORT).show()
+                                findNavController().navigate(R.id.action_loginFragment_to_homeScreenFragment)
                             }
-                            snackbar.show()
-                        } else {
-                            val editor : SharedPreferences.Editor = preferences.edit()
-                            editor.putString(USERNAME, username.toString())
-                            editor.putString(PASSWORD, password.toString())
-                            editor.apply()
-                            Toast.makeText(context, "Login berhasil", Toast.LENGTH_SHORT).show()
-                            findNavController().navigate(R.id.action_loginFragment_to_homeScreenFragment)
                         }
                     }
                 }

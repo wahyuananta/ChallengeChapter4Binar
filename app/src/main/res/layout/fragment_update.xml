@@ -11,7 +11,7 @@
         android:id="@+id/tv_jadwal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update Jadwal Pertandingan"
+        android:text="@string/update_jadwal_pertandingan"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginTop="16dp"
@@ -35,7 +35,7 @@
             android:id="@+id/et_tanggal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Tanggal" />
+            android:hint="@string/tanggal_update" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,7 +54,7 @@
             android:id="@+id/et_jam"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Kick Off" />
+            android:hint="@string/kick_off_update" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -65,7 +65,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/blue_primer"
-        android:text="Update"
+        android:text="@string/update_update"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="18sp"
@@ -81,7 +81,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/blue_primer"
-        android:text="Batal"
+        android:text="@string/batal_update"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="18sp"

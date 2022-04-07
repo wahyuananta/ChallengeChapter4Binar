@@ -15,7 +15,7 @@ import kotlinx.coroutines.async
 class UpdateFragment(var itemSelected : Club) : DialogFragment() {
     private var _binding: FragmentUpdateBinding? = null
     private val binding get() = _binding!!
-    var mDb: AppDatabase?=null
+    private var mDb: AppDatabase?=null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
