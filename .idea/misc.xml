@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Studio Project/Binar Academy/Chapter 4/ChallengeChapter4Binar/app/src/main/res/drawable/ic_add.xml" value="0.177" />
+        <entry key="..\:/Android Studio Project/Binar Academy/Chapter 4/ChallengeChapter4Binar/app/src/main/res/drawable/ic_delete.xml" value="0.177" />
+        <entry key="..\:/Android Studio Project/Binar Academy/Chapter 4/ChallengeChapter4Binar/app/src/main/res/drawable/ic_edit.xml" value="0.177" />
+        <entry key="..\:/Android Studio Project/Binar Academy/Chapter 4/ChallengeChapter4Binar/app/src/main/res/drawable/rounded_dialog.xml" value="0.177" />
         <entry key="..\:/Android Studio Project/Binar Academy/Chapter 4/ChallengeChapter4Binar/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Android Studio Project/Binar Academy/Chapter 4/ChallengeChapter4Binar/app/src/main/res/layout/fragment_add.xml" value="0.20416666666666666" />
         <entry key="..\:/Android Studio Project/Binar Academy/Chapter 4/ChallengeChapter4Binar/app/src/main/res/layout/fragment_delete.xml" value="0.20416666666666666" />
