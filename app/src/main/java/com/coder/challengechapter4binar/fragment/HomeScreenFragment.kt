@@ -64,7 +64,7 @@ class HomeScreenFragment : Fragment() {
     }
 
     fun userLogout() {
-        binding.tvLogout.setOnClickListener {
+        binding.btnLogout.setOnClickListener {
             val logoutDialog =AlertDialog.Builder(requireContext())
             logoutDialog.setTitle("Logout")
             logoutDialog.setMessage("Apakah anda yakin ingin logout?")

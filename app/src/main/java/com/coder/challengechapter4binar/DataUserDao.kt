@@ -8,7 +8,7 @@ import androidx.room.Query
 
 @Dao
 interface DataUserDao {
-    @Query("SELECT * FROM DataUser WHERE username like :username and password like :password")
+    @Query("SELECT EXISTS(SELECT * FROM DataUser WHERE username = :username and password = :password)")
     fun checkUser(username: String, password: String): Boolean
 
     @Insert(onConflict = REPLACE)
