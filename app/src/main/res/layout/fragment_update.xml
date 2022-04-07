@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/il_liga"
+        android:id="@+id/il_tanggal"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="296dp"
         android:layout_height="wrap_content"
@@ -30,63 +30,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_jadwal">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_liga"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Liga" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/il_home"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="296dp"
-        android:layout_height="wrap_content"
-        app:errorEnabled="true"
-        android:layout_marginHorizontal="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/il_liga">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_home"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Tim Home" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/il_away"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="296dp"
-        android:layout_height="wrap_content"
-        app:errorEnabled="true"
-        android:layout_marginHorizontal="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/il_home">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_away"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Tim Away" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/il_tanggal"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="296dp"
-        android:layout_height="wrap_content"
-        app:errorEnabled="true"
-        android:layout_marginHorizontal="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/il_away">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_tanggal"
