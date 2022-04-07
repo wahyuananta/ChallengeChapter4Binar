@@ -40,19 +40,19 @@ class RegisterFragment : Fragment() {
 
             when {
                 username.isNullOrEmpty() -> {
-                    Toast.makeText(activity, "Username belum diisi", Toast.LENGTH_SHORT).show()
+                    binding.ilUsername.error = "Username belum diisi"
                 }
                 email.isNullOrEmpty() -> {
-                    Toast.makeText(activity, "Email belum diisi", Toast.LENGTH_SHORT).show()
+                    binding.ilEmail.error = "Email belum diisi"
                 }
                 password.isNullOrEmpty() -> {
-                    Toast.makeText(activity, "Password belum diisi", Toast.LENGTH_SHORT).show()
+                    binding.ilPassword.error = "Password belum diisi"
                 }
                 konfirmasiPassword.isNullOrEmpty() -> {
-                    Toast.makeText(activity, "Konfirmasi password belum diisi", Toast.LENGTH_SHORT).show()
+                    binding.ilKonfirmasiPassword.error = "Konfirmasi password belum diisi"
                 }
                 password.toString().lowercase() != konfirmasiPassword.toString().lowercase() -> {
-                    Toast.makeText(activity, "Password tidak sama", Toast.LENGTH_SHORT).show()
+                    binding.ilKonfirmasiPassword.error = "Password tidak sama"
                 }
                 else -> {
                     val dataUser = DataUser(null, username.toString(), email.toString(), password.toString())
@@ -61,9 +61,9 @@ class RegisterFragment : Fragment() {
                         val result= mDb?.dataUserDao()?.addUser(dataUser)
                         activity?.runOnUiThread {
                             if (result != 0.toLong()) {
-                                Toast.makeText(activity, "Pendaftaran berhasil", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(activity, "Registrasi berhasil", Toast.LENGTH_SHORT).show()
                             } else {
-                                Toast.makeText(activity, "Pendaftaran gagal", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(activity, "Registrasi gagal", Toast.LENGTH_SHORT).show()
                             }
                         }
                     }
