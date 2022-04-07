@@ -22,12 +22,12 @@ class SplashScreenActivity : AppCompatActivity() {
             startActivity(Intent(this@SplashScreenActivity, MainActivity::class.java))
         }
 
-//        binding.ivBola.alpha = 0f
-//        binding.ivBola.animate().setDuration(1500).alpha(1f).withEndAction {
-//            val intentKeMain = Intent(this, MainActivity::class.java)
-//            startActivity(intentKeMain)
-//            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-//            finish()
-//        }
+        binding.ivBola.alpha = 0f
+        binding.ivBola.animate().setDuration(4000).alpha(1f).withEndAction {
+            val intentKeMain = Intent(this, MainActivity::class.java)
+            startActivity(intentKeMain)
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+            finish()
+        }
     }
 }
