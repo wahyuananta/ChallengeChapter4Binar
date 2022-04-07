@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.coder.challengechapter4binar.AppDatabase
 import com.coder.challengechapter4binar.Club
+import com.coder.challengechapter4binar.R
 import com.coder.challengechapter4binar.databinding.FragmentUpdateBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
@@ -41,10 +42,10 @@ class UpdateFragment(var itemSelected : Club) : DialogFragment() {
 
             when {
                 tanggal.isNullOrEmpty() -> {
-                    binding.ilTanggal.error = "Tanggal belum diisi"
+                    binding.ilTanggal.error = getString(R.string.tanggal_belum_diisi)
                 }
                 jam.isNullOrEmpty() -> {
-                    binding.ilJam.error = "Kick off belum diisi"
+                    binding.ilJam.error = getString(R.string.jam_belum_diisi)
                 }
                 else -> {
                     val dataClub = itemSelected

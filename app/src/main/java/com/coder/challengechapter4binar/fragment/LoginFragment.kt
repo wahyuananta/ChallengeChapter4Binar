@@ -24,7 +24,6 @@ class LoginFragment : Fragment() {
     companion object {
         const val LOGINUSER = "login_username"
         const val USERNAME = "username"
-        const val PASSWORD = "password"
     }
 
     override fun onCreateView(
@@ -55,10 +54,10 @@ class LoginFragment : Fragment() {
 
             when {
                 username.isNullOrEmpty() -> {
-                    binding.ilUsername.error = "Username belum diisi"
+                    binding.ilUsername.error = getString(R.string.username_belum_diisi)
                 }
                 password.isNullOrEmpty() -> {
-                    binding.ilPassword.error = "Password belum diisi"
+                    binding.ilPassword.error = getString(R.string.password_belum_diisi)
                 }
                 else -> {
                     GlobalScope.async {
@@ -66,8 +65,7 @@ class LoginFragment : Fragment() {
 
                         activity?.runOnUiThread {
                             if (result == false) {
-                                val snackbar = Snackbar.make(it,"Login gagal, coba periksa email atau password anda",
-                                    Snackbar.LENGTH_INDEFINITE)
+                                val snackbar = Snackbar.make(it,"Login gagal, coba periksa email atau password anda", Snackbar.LENGTH_INDEFINITE)
                                 snackbar.setAction("Oke") {
                                     snackbar.dismiss()
                                 }
@@ -75,7 +73,6 @@ class LoginFragment : Fragment() {
                             } else {
                                 val editor : SharedPreferences.Editor = preferences.edit()
                                 editor.putString(USERNAME, username.toString())
-                                editor.putString(PASSWORD, password.toString())
                                 editor.apply()
                                 Toast.makeText(context, "Login berhasil", Toast.LENGTH_SHORT).show()
                                 findNavController().navigate(R.id.action_loginFragment_to_homeScreenFragment)

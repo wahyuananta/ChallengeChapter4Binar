@@ -40,19 +40,19 @@ class RegisterFragment : Fragment() {
 
             when {
                 username.isNullOrEmpty() -> {
-                    binding.ilUsername.error = "Username belum diisi"
+                    binding.ilUsername.error = getString(R.string.username_belum_diisi)
                 }
                 email.isNullOrEmpty() -> {
-                    binding.ilEmail.error = "Email belum diisi"
+                    binding.ilEmail.error = getString(R.string.email_belum_diisi)
                 }
                 password.isNullOrEmpty() -> {
-                    binding.ilPassword.error = "Password belum diisi"
+                    binding.ilPassword.error = getString(R.string.password_belum_diisi)
                 }
                 konfirmasiPassword.isNullOrEmpty() -> {
-                    binding.ilKonfirmasiPassword.error = "Konfirmasi password belum diisi"
+                    binding.ilKonfirmasiPassword.error = getString(R.string.konfirmasi_password_belum_diisi)
                 }
                 password.toString().lowercase() != konfirmasiPassword.toString().lowercase() -> {
-                    binding.ilKonfirmasiPassword.error = "Password tidak sama"
+                    binding.ilKonfirmasiPassword.error = getString(R.string.password_tidak_sama)
                 }
                 else -> {
                     val dataUser = DataUser(null, username.toString(), email.toString(), password.toString())

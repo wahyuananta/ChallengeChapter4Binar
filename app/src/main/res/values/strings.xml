@@ -42,4 +42,17 @@
     <string name="_20_00">20.00</string>
     <string name="button_delete">Button Delete</string>
     <string name="button_edit">Button Edit</string>
+
+    <string name="liga_belum_diisi">Liga belum diisi</string>
+    <string name="tim_home_belum_diisi">Tim Home belum diisi</string>
+    <string name="tim_away_belum_diisi">Tim Away belum diisi</string>
+    <string name="tanggal_belum_diisi">Tanggal belum diisi</string>
+    <string name="jam_belum_diisi">Kick off belum diisi</string>
+
+    <string name="username_belum_diisi">Username belum diisi</string>
+    <string name="email_belum_diisi">Email belum diisi</string>
+    <string name="password_belum_diisi">Password belum diisi</string>
+    <string name="konfirmasi_password_belum_diisi">Konfirmasi password belum diisi</string>
+    <string name="password_tidak_sama">Password tidak sama</string>
+
 </resources>

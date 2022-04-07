@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.coder.challengechapter4binar.AppDatabase
 import com.coder.challengechapter4binar.Club
+import com.coder.challengechapter4binar.R
 import com.coder.challengechapter4binar.databinding.FragmentAddBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
@@ -44,19 +45,19 @@ class AddFragment : DialogFragment() {
 
             when {
                 liga.isNullOrEmpty() -> {
-                    binding.ilLiga.error = "Liga belum diisi"
+                    binding.ilLiga.error = getString(R.string.liga_belum_diisi)
                 }
                 home.isNullOrEmpty() -> {
-                    binding.ilHome.error = "Tim home belum diisi"
+                    binding.ilHome.error = getString(R.string.tim_home_belum_diisi)
                 }
                 away.isNullOrEmpty() -> {
-                    binding.ilAway.error = "Tim away belum diisi"
+                    binding.ilAway.error = getString(R.string.tim_away_belum_diisi)
                 }
                 tanggal.isNullOrEmpty() -> {
-                    binding.ilTanggal.error = "Tanggal belum diisi"
+                    binding.ilTanggal.error = getString(R.string.tanggal_belum_diisi)
                 }
                 jam.isNullOrEmpty() -> {
-                    binding.ilJam.error = "Kick off belum diisi"
+                    binding.ilJam.error = getString(R.string.jam_belum_diisi)
                 }
                 else -> {
                     val dataClub = Club(null,
