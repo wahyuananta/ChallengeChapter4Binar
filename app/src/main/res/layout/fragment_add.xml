@@ -22,7 +22,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/il_liga"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
+        android:layout_width="296dp"
         android:layout_height="wrap_content"
         app:errorEnabled="true"
         android:layout_marginHorizontal="32dp"
@@ -42,7 +42,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/il_home"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
+        android:layout_width="296dp"
         android:layout_height="wrap_content"
         app:errorEnabled="true"
         android:layout_marginHorizontal="32dp"
@@ -61,7 +61,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/il_away"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
+        android:layout_width="296dp"
         android:layout_height="wrap_content"
         app:errorEnabled="true"
         android:layout_marginHorizontal="32dp"
@@ -80,7 +80,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/il_tanggal"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
+        android:layout_width="296dp"
         android:layout_height="wrap_content"
         app:errorEnabled="true"
         android:layout_marginHorizontal="32dp"
@@ -99,7 +99,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/il_jam"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
+        android:layout_width="296dp"
         android:layout_height="wrap_content"
         app:errorEnabled="true"
         android:layout_marginHorizontal="32dp"
