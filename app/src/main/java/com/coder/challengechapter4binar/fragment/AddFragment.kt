@@ -10,6 +10,7 @@ import com.coder.challengechapter4binar.AppDatabase
 import com.coder.challengechapter4binar.Club
 import com.coder.challengechapter4binar.R
 import com.coder.challengechapter4binar.databinding.FragmentAddBinding
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
@@ -75,7 +76,11 @@ class AddFragment : DialogFragment() {
                             if (result != 0.toLong()) {
                                 Toast.makeText(requireContext(),"Pertandingan berhasil ditambahkan ke jadwal", Toast.LENGTH_SHORT).show()
                             } else {
-                                Toast.makeText(requireContext(),"Gagal menambahkan pertandingan ke jadwal", Toast.LENGTH_SHORT).show()
+                                val snackbar = Snackbar.make(it,"Gagal menambahkan pertandingan ke jadwal, coba lagi nanti!", Snackbar.LENGTH_INDEFINITE)
+                                snackbar.setAction("Oke") {
+                                    snackbar.dismiss()
+                                }
+                                snackbar.show()
                             }
                         }
                     }

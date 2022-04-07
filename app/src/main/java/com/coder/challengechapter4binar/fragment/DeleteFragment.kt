@@ -10,6 +10,7 @@ import com.coder.challengechapter4binar.AppDatabase
 import com.coder.challengechapter4binar.Club
 import com.coder.challengechapter4binar.R
 import com.coder.challengechapter4binar.databinding.FragmentDeleteBinding
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
@@ -51,7 +52,11 @@ class DeleteFragment(var itemSelected : Club) : DialogFragment() {
                     if (result != 0) {
                         Toast.makeText(it.context, "Jadwal pertandingan berhasil dihapus", Toast.LENGTH_SHORT).show()
                     } else {
-                        Toast.makeText(it.context, "Gagal menghapus jadwal pertandingan", Toast.LENGTH_SHORT).show()
+                        val snackbar = Snackbar.make(it,"Gagal menghapus jadwal pertandingan, coba lagi nanti!", Snackbar.LENGTH_INDEFINITE)
+                        snackbar.setAction("Oke") {
+                            snackbar.dismiss()
+                        }
+                        snackbar.show()
                     }
                 }
             }

@@ -11,6 +11,7 @@ import com.coder.challengechapter4binar.AppDatabase
 import com.coder.challengechapter4binar.DataUser
 import com.coder.challengechapter4binar.R
 import com.coder.challengechapter4binar.databinding.FragmentRegisterBinding
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
@@ -63,7 +64,11 @@ class RegisterFragment : Fragment() {
                             if (result != 0.toLong()) {
                                 Toast.makeText(activity, "Registrasi berhasil", Toast.LENGTH_SHORT).show()
                             } else {
-                                Toast.makeText(activity, "Registrasi gagal", Toast.LENGTH_SHORT).show()
+                                val snackbar = Snackbar.make(it,"Registrasi gagal, coba lagi nanti!", Snackbar.LENGTH_INDEFINITE)
+                                snackbar.setAction("Oke") {
+                                    snackbar.dismiss()
+                                }
+                                snackbar.show()
                             }
                         }
                     }

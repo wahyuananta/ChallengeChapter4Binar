@@ -10,6 +10,7 @@ import com.coder.challengechapter4binar.AppDatabase
 import com.coder.challengechapter4binar.Club
 import com.coder.challengechapter4binar.R
 import com.coder.challengechapter4binar.databinding.FragmentUpdateBinding
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
@@ -59,7 +60,11 @@ class UpdateFragment(var itemSelected : Club) : DialogFragment() {
                             if (result != 0) {
                                 Toast.makeText(it.context, "Jadwal pertandingan berhasil diupdate", Toast.LENGTH_SHORT).show()
                             } else {
-                                Toast.makeText(it.context, "Gagal mengupdate jadwal pertandingan", Toast.LENGTH_SHORT).show()
+                                val snackbar = Snackbar.make(it,"Gagal mengupdate jadwal pertandingan, coba lagi nanti!", Snackbar.LENGTH_INDEFINITE)
+                                snackbar.setAction("Oke") {
+                                    snackbar.dismiss()
+                                }
+                                snackbar.show()
                             }
                         }
                     }
