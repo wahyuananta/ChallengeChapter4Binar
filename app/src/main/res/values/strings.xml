@@ -54,5 +54,13 @@
     <string name="password_belum_diisi">Password belum diisi</string>
     <string name="konfirmasi_password_belum_diisi">Konfirmasi password belum diisi</string>
     <string name="password_tidak_sama">Password tidak sama</string>
+    <string name="tgl_update">__/__/____</string>
+    <string name="jam_updt">__.__</string>
+    <string name="wib">WIB</string>
+    <string name="data_masih_kosong">Data Masih Kosong</string>
+    <string name="tgl_add">__/__/____</string>
+    <string name="jam_ad">__.__</string>
+
+    <string name="sapaan">Hai</string>
 
 </resources>

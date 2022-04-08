@@ -35,7 +35,7 @@ class HomeScreenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         preferences = requireContext().getSharedPreferences(LoginFragment.LOGINUSER, Context.MODE_PRIVATE)
-        binding.tvUser.text = "Hai ${preferences.getString(LoginFragment.USERNAME,null)}"
+        binding.tvUser.text = getString(R.string.sapaan) + "${preferences.getString(LoginFragment.USERNAME,null)}"
 
         mDb = AppDatabase.getInstance(requireContext())
         binding.rvList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
@@ -50,11 +50,16 @@ class HomeScreenFragment : Fragment() {
         }
     }
 
-    private fun fetchData() {
+    fun fetchData() {
         GlobalScope.launch {
             val clubList = mDb?.clubDao()?.getAllClub()
+            if (clubList!!.isEmpty()) {
+                binding.tvDataKosong.visibility = View.VISIBLE
+            } else {
+                binding.tvDataKosong.visibility = View.GONE
+            }
             activity?.runOnUiThread {
-                clubList?.let {
+                clubList.let {
                     val adapter = ClubAdapter(it)
                     binding.rvList.adapter = adapter
                     adapter.submitData(it)

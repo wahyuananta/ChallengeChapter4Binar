@@ -14,6 +14,7 @@
         android:text="@string/tambah_jadwal_pertandingan"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,50 +78,63 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/il_tanggal"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="296dp"
+    <TextView
+        android:id="@+id/tv_tanggal"
+        android:layout_width="96dp"
         android:layout_height="wrap_content"
-        app:errorEnabled="true"
-        android:layout_marginHorizontal="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/il_away">
+        android:layout_marginStart="50dp"
+        android:text="@string/tgl_add"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="@id/il_away"
+        app:layout_constraintTop_toBottomOf="@id/il_away" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_tanggal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/tanggal_add" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/il_jam"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="296dp"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_tanggal"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:errorEnabled="true"
-        android:layout_marginHorizontal="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/il_tanggal">
+        android:layout_marginBottom="2dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/tanggal_add"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:cornerRadius="16dp"
+        app:layout_constraintStart_toEndOf="@id/tv_tanggal"
+        app:layout_constraintTop_toTopOf="@id/tv_tanggal"
+        app:layout_constraintBottom_toBottomOf="@id/tv_tanggal"
+        app:strokeColor="@color/black"
+        app:strokeWidth="2dp" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_jam"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/kick_off_add" />
+    <TextView
+        android:id="@+id/tv_jam"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:textAlignment="center"
+        android:text="@string/jam_ad"
+        app:layout_constraintStart_toStartOf="@id/tv_tanggal"
+        app:layout_constraintTop_toBottomOf="@id/tv_tanggal"/>
 
-    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_jam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/kick_off_add"
+        android:textColor="@color/black"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/white"
+        app:cornerRadius="16dp"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/tv_jam"
+        app:layout_constraintTop_toTopOf="@id/tv_jam"
+        app:layout_constraintBottom_toBottomOf="@id/tv_jam"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_tambah"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="30dp"
         android:backgroundTint="@color/blue_primer"
         android:text="@string/tambah_add"
         android:textAllCaps="false"
@@ -129,14 +143,14 @@
         app:cornerRadius="16dp"
         app:layout_constraintStart_toEndOf="@id/btn_batal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/il_jam"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_jam"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_batal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="30dp"
         android:backgroundTint="@color/blue_primer"
         android:text="@string/batal_add"
         android:textAllCaps="false"
@@ -145,6 +159,6 @@
         app:cornerRadius="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btn_tambah"
-        app:layout_constraintTop_toBottomOf="@id/il_jam"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_jam"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

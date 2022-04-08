@@ -1,13 +1,17 @@
 package com.coder.challengechapter4binar
 
+import android.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.coder.challengechapter4binar.databinding.ListItemBinding
-import com.coder.challengechapter4binar.fragment.DeleteFragment
 import com.coder.challengechapter4binar.fragment.UpdateFragment
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
 
 class ClubAdapter(val listClub: List<Club>) : RecyclerView.Adapter<ClubAdapter.ViewHolder>() {
 
@@ -49,9 +53,31 @@ class ClubAdapter(val listClub: List<Club>) : RecyclerView.Adapter<ClubAdapter.V
             }
 
             ivDelete.setOnClickListener {
-                val activity = it.context as MainActivity
-                val dialogFragment = DeleteFragment(data)
-                dialogFragment.show(activity.supportFragmentManager, null)
+                AlertDialog.Builder(it.context)
+                    .setPositiveButton("Ya"){ _,_ ->
+                        val mDb = AppDatabase.getInstance(holder.itemView.context)
+                        GlobalScope.async {
+                            val result = mDb?.clubDao()?.deleteClub(listClub[position])
+                            (holder.itemView.context as MainActivity).runOnUiThread {
+                                if (result != 0 ){
+                                    Toast.makeText(it.context, "Jadwal pertandingan berhasil dihapus", Toast.LENGTH_SHORT).show()
+                                }else{
+                                    val snackbar = Snackbar.make(it,"Gagal menghapus jadwal pertandingan, coba lagi nanti!", Snackbar.LENGTH_INDEFINITE)
+                                    snackbar.setAction("Oke") {
+                                        snackbar.dismiss()
+                                    }
+                                    snackbar.show()
+                                }
+                            }
+                        }
+                    }
+                    .setNegativeButton("Batal"){p0,_->
+                        p0.dismiss()
+                    }
+                    .setTitle("Konfirmasi Hapus")
+                    .setMessage("Apakah anda yakin ingin menghapus data?")
+                    .create()
+                    .show()
             }
         }
     }
