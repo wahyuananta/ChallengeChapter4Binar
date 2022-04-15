@@ -52,7 +52,8 @@ class HomeScreenFragment : Fragment() {
 
     fun fetchData() {
         GlobalScope.launch {
-            val clubList = mDb?.clubDao()?.getAllClub()
+//            val clubList = mDb?.clubDao()?.getAllClub()
+            val clubList = mDb?.repository()?.allClub
             if (clubList!!.isEmpty()) {
                 binding.tvDataKosong.visibility = View.VISIBLE
             } else {

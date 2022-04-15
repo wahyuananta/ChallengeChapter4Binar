@@ -57,7 +57,8 @@ class ClubAdapter(val listClub: List<Club>) : RecyclerView.Adapter<ClubAdapter.V
                     .setPositiveButton("Ya"){ _,_ ->
                         val mDb = AppDatabase.getInstance(holder.itemView.context)
                         GlobalScope.async {
-                            val result = mDb?.clubDao()?.deleteClub(listClub[position])
+//                            val result = mDb?.clubDao()?.deleteClub(listClub[position])
+                            val result = mDb?.repository()?.delete(listClub[position])
                             (holder.itemView.context as MainActivity).runOnUiThread {
                                 if (result != 0 ){
                                     Toast.makeText(it.context, "Jadwal pertandingan berhasil dihapus", Toast.LENGTH_SHORT).show()

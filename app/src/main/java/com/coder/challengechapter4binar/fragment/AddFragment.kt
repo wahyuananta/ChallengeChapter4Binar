@@ -11,6 +11,7 @@ import androidx.fragment.app.DialogFragment
 import com.coder.challengechapter4binar.AppDatabase
 import com.coder.challengechapter4binar.Club
 import com.coder.challengechapter4binar.R
+import com.coder.challengechapter4binar.Repository
 import com.coder.challengechapter4binar.databinding.FragmentAddBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.GlobalScope
@@ -78,7 +79,8 @@ class AddFragment : DialogFragment() {
                     )
 
                     GlobalScope.async {
-                        val result = mDb?.clubDao()?.insertClub(dataClub)
+//                        val result = mDb?.clubDao()?.insertClub(dataClub)
+                        val result = mDb?.repository()?.insert(dataClub)
                         activity?.runOnUiThread {
                             if (result != 0.toLong()) {
                                 Toast.makeText(requireContext(),"Pertandingan berhasil ditambahkan ke jadwal", Toast.LENGTH_SHORT).show()

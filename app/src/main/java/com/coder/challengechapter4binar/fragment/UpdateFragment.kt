@@ -60,7 +60,8 @@ class UpdateFragment(var itemSelected : Club) : DialogFragment() {
             dataClub.jam = jam.toString()
 
             GlobalScope.async {
-                val result = mDb?.clubDao()?.updateClub(dataClub)
+//                val result = mDb?.clubDao()?.updateClub(dataClub)
+                val result = mDb?.repository()?.update(dataClub)
                 activity?.runOnUiThread {
                     if (result != 0) {
                         Toast.makeText(it.context, "Jadwal pertandingan berhasil diupdate", Toast.LENGTH_SHORT).show()

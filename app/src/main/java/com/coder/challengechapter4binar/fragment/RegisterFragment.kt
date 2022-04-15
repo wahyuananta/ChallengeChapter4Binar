@@ -59,7 +59,8 @@ class RegisterFragment : Fragment() {
                     val dataUser = DataUser(null, username.toString(), email.toString(), password.toString())
 
                     GlobalScope.async {
-                        val result= mDb?.dataUserDao()?.addUser(dataUser)
+//                        val result= mDb?.dataUserDao()?.addUser(dataUser)
+                        val result= mDb?.repository()?.insertDataUser(dataUser)
                         activity?.runOnUiThread {
                             if (result != 0.toLong()) {
                                 Toast.makeText(activity, "Registrasi berhasil", Toast.LENGTH_SHORT).show()
