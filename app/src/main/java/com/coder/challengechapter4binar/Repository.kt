@@ -1,26 +1,31 @@
 package com.coder.challengechapter4binar
 
-import androidx.annotation.WorkerThread
+import android.content.Context
 
-class Repository(private val dataUserDao: DataUserDao, private val clubDao: ClubDao) {
+class Repository(context: Context) {
+    private val mDb = AppDatabase.getInstance(context)
 
-    val allClub: List<Club> = clubDao.getAllClub()
+    fun getAllClub(): List<Club> {
+        return mDb!!.clubDao().getAllClub()
+    }
 
-    @Suppress("RedundantSuspendModifier")
-    @WorkerThread
-    suspend fun insert(club: Club): Long {
-        return clubDao.insertClub(club)
+    fun insert(club: Club): Long {
+        return mDb!!.clubDao().insertClub(club)
     }
 
     fun update(club: Club): Int {
-        return clubDao.updateClub(club)
+        return mDb!!.clubDao().updateClub(club)
     }
 
     fun delete(club: Club): Int {
-        return clubDao.deleteClub(club)
+        return mDb!!.clubDao().deleteClub(club)
     }
 
-    fun insertDataUser(dataUser: DataUser): Long {
-        return dataUserDao.addUser(dataUser)
+    fun checkUser(username: String, password: String): Boolean {
+        return mDb!!.dataUserDao().checkUser(username, password)
+    }
+
+    fun addUser(dataUser: DataUser): Long {
+        return mDb!!.dataUserDao().addUser(dataUser)
     }
 }

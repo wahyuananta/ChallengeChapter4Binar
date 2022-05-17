@@ -11,6 +11,7 @@ import androidx.fragment.app.DialogFragment
 import com.coder.challengechapter4binar.AppDatabase
 import com.coder.challengechapter4binar.Club
 import com.coder.challengechapter4binar.R
+import com.coder.challengechapter4binar.Repository
 import com.coder.challengechapter4binar.databinding.FragmentUpdateBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.GlobalScope
@@ -21,7 +22,8 @@ import java.util.*
 class UpdateFragment(var itemSelected : Club) : DialogFragment() {
     private var _binding: FragmentUpdateBinding? = null
     private val binding get() = _binding!!
-    private var mDb: AppDatabase?=null
+    private lateinit var repository: Repository
+//    private var mDb: AppDatabase?=null
     private var cal = Calendar.getInstance()
 
     override fun onCreateView(
@@ -41,7 +43,8 @@ class UpdateFragment(var itemSelected : Club) : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mDb = AppDatabase.getInstance(requireContext())
+        repository = Repository(requireContext())
+//        mDb = AppDatabase.getInstance(requireContext())
 
         binding.btnTanggal.setOnClickListener {
             datePickerDialog()
@@ -61,7 +64,7 @@ class UpdateFragment(var itemSelected : Club) : DialogFragment() {
 
             GlobalScope.async {
 //                val result = mDb?.clubDao()?.updateClub(dataClub)
-                val result = mDb?.repository()?.update(dataClub)
+                val result = repository.update(dataClub)
                 activity?.runOnUiThread {
                     if (result != 0) {
                         Toast.makeText(it.context, "Jadwal pertandingan berhasil diupdate", Toast.LENGTH_SHORT).show()

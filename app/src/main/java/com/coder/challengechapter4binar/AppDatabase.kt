@@ -10,8 +10,8 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [DataUser::class, Club::class], version = 1)
 abstract class AppDatabase: RoomDatabase() {
-//    abstract fun dataUserDao(): DataUserDao
-//    abstract fun clubDao(): ClubDao
+    abstract fun dataUserDao(): DataUserDao
+    abstract fun clubDao(): ClubDao
 
     abstract fun repository() : Repository
 

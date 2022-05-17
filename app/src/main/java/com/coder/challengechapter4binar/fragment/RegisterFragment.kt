@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.coder.challengechapter4binar.AppDatabase
 import com.coder.challengechapter4binar.DataUser
 import com.coder.challengechapter4binar.R
+import com.coder.challengechapter4binar.Repository
 import com.coder.challengechapter4binar.databinding.FragmentRegisterBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.GlobalScope
@@ -18,7 +19,8 @@ import kotlinx.coroutines.async
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
-    private var mDb: AppDatabase? = null
+    private lateinit var repository: Repository
+//    private var mDb: AppDatabase? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +33,8 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mDb = AppDatabase.getInstance(requireContext())
+        repository = Repository(requireContext())
+//        mDb = AppDatabase.getInstance(requireContext())
 
         binding.btnDaftar.setOnClickListener {
             val username = binding.etUsername.text
@@ -60,7 +63,7 @@ class RegisterFragment : Fragment() {
 
                     GlobalScope.async {
 //                        val result= mDb?.dataUserDao()?.addUser(dataUser)
-                        val result= mDb?.repository()?.insertDataUser(dataUser)
+                        val result= repository.addUser(dataUser)
                         activity?.runOnUiThread {
                             if (result != 0.toLong()) {
                                 Toast.makeText(activity, "Registrasi berhasil", Toast.LENGTH_SHORT).show()

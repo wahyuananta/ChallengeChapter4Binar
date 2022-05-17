@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.coder.challengechapter4binar.AppDatabase
 import com.coder.challengechapter4binar.R
+import com.coder.challengechapter4binar.Repository
 import com.coder.challengechapter4binar.databinding.FragmentLoginBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.GlobalScope
@@ -19,7 +20,8 @@ import kotlinx.coroutines.async
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
-    private var mDb: AppDatabase? = null
+    private lateinit var repository: Repository
+//    private var mDb: AppDatabase? = null
 
     companion object {
         const val LOGINUSER = "login_username"
@@ -37,7 +39,8 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mDb = AppDatabase.getInstance(requireContext())
+        repository = Repository(requireContext())
+//        mDb = AppDatabase.getInstance(requireContext())
 
         val preferences = this.activity?.getSharedPreferences(LOGINUSER, Context.MODE_PRIVATE)
         if (preferences!!.getString(USERNAME, null) != null) {
@@ -61,7 +64,7 @@ class LoginFragment : Fragment() {
                 }
                 else -> {
                     GlobalScope.async {
-                        val result = mDb?.dataUserDao()?.checkUser(username.toString(), password.toString())
+                        val result = repository.checkUser(username.toString(), password.toString())
 
                         activity?.runOnUiThread {
                             if (result == false) {

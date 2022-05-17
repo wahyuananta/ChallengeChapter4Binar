@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.coder.challengechapter4binar.AppDatabase
 import com.coder.challengechapter4binar.ClubAdapter
 import com.coder.challengechapter4binar.R
+import com.coder.challengechapter4binar.Repository
 import com.coder.challengechapter4binar.databinding.FragmentHomeScreenBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -20,7 +21,8 @@ import kotlinx.coroutines.launch
 class HomeScreenFragment : Fragment() {
     private var _binding: FragmentHomeScreenBinding? = null
     private val binding get() = _binding!!
-    private var mDb: AppDatabase? = null
+    private lateinit var repository: Repository
+//    private var mDb: AppDatabase? = null
     private lateinit var preferences: SharedPreferences
 
     override fun onCreateView(
@@ -37,7 +39,8 @@ class HomeScreenFragment : Fragment() {
         preferences = requireContext().getSharedPreferences(LoginFragment.LOGINUSER, Context.MODE_PRIVATE)
         binding.tvUser.text = getString(R.string.sapaan) + "${preferences.getString(LoginFragment.USERNAME,null)}"
 
-        mDb = AppDatabase.getInstance(requireContext())
+        repository = Repository(requireContext())
+//        mDb = AppDatabase.getInstance(requireContext())
         binding.rvList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
         fetchData()
         add()
@@ -53,7 +56,7 @@ class HomeScreenFragment : Fragment() {
     fun fetchData() {
         GlobalScope.launch {
 //            val clubList = mDb?.clubDao()?.getAllClub()
-            val clubList = mDb?.repository()?.allClub
+            val clubList = repository.getAllClub()
             if (clubList!!.isEmpty()) {
                 binding.tvDataKosong.visibility = View.VISIBLE
             } else {

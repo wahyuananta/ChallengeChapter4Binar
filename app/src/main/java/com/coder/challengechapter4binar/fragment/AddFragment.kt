@@ -22,7 +22,8 @@ import java.util.*
 class AddFragment : DialogFragment() {
     private var _binding: FragmentAddBinding? = null
     private val binding get() = _binding!!
-    private var mDb: AppDatabase? = null
+    private lateinit var repository: Repository
+//    private var mDb: AppDatabase? = null
     private var cal = Calendar.getInstance()
 
     override fun onCreateView(
@@ -42,7 +43,8 @@ class AddFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mDb = AppDatabase.getInstance(requireContext())
+        repository = Repository(requireContext())
+//        mDb = AppDatabase.getInstance(requireContext())
 
         binding.btnTanggal.setOnClickListener {
             datePickerDialog()
@@ -80,7 +82,7 @@ class AddFragment : DialogFragment() {
 
                     GlobalScope.async {
 //                        val result = mDb?.clubDao()?.insertClub(dataClub)
-                        val result = mDb?.repository()?.insert(dataClub)
+                        val result = repository.insert(dataClub)
                         activity?.runOnUiThread {
                             if (result != 0.toLong()) {
                                 Toast.makeText(requireContext(),"Pertandingan berhasil ditambahkan ke jadwal", Toast.LENGTH_SHORT).show()
